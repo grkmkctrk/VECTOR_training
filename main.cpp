@@ -24,8 +24,6 @@ In order to use vector efficiently, these following statement are noticed as
 /*
     / EX1
 
-    / EX1
-*/
 #include "utilityClass.hpp"
 
 using namespace std;
@@ -51,6 +49,39 @@ int main(){
 
     fillVec(iVec, 21);
     displayVec(iVec);
+
+    return 0;
+}
+
+    / EX1
+*/
+
+/*
+    / EX2
+
+    / EX2
+*/
+
+#include "utilityClass.hpp"
+
+using namespace std;
+
+int main(){
+
+    
+    // pointer is not alocated. iVec just stored itself
+    vector<int> iVec; 
+    vector<double> dVec; 
+    vector<string> sVec; 
+    
+    Randomize();
+
+    cfill(iVec, 10, 0.0, 100.0);
+    cdisplay(iVec);
+    cfill(dVec, 10, 0.0, 100.0);
+    cdisplay(dVec);
+    cfillString(sVec, 10);
+    cdisplay(sVec);
 
     return 0;
 }

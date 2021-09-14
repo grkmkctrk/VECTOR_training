@@ -26,7 +26,7 @@ In order to use vector efficiently, these following statement are noticed as
 
     / EX1
 */
-#include "utility/utilityClass.hpp"
+#include "utilityClass.hpp"
 
 using namespace std;
 

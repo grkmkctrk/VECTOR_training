@@ -11,17 +11,28 @@
 #include <ctime>
 #include <cstdlib>
 
+// .---------------------------------------------. //
 ///////////////////////////
 // / begin decleration / //
 
 void Randomize();
 std::string srandom();
 
-// / begin decleration / //
+// / end decleration / //
 ///////////////////////////
+// .---------------------------------------------. //
+///////////////////////
+// / begin typedef / //
 
-/////////////////////////////
-// / template definition / //
+typedef std::vector<int> vectorInt;
+typedef std::vector<double> vectorDouble;
+typedef std::vector<std::string> vectorString;
+
+// /  end typedef  / //
+///////////////////////
+// .---------------------------------------------. //
+///////////////////////////////////
+// / begin template definition / //
 
 template<class Con>
 void cdisplay(const Con& con){
@@ -53,7 +64,98 @@ void cfillString(Con& con, int size){
         con.push_back(srandom());
 }
 
-// / template definition / //
-/////////////////////////////
+template<class iterCon>
+auto cSum(iterCon beg, iterCon end){
+    auto returnValue = *beg - *beg;
+    
+    for (
+        auto iter = beg; 
+        iter != end; 
+        returnValue+=(*iter++)
+        );
+
+    return returnValue;
+}
+
+template<class Con>
+auto cSum2(Con& con){
+    typename Con::const_iterator iter = con.begin();
+    auto returnValue = *iter - *iter;
+
+    for (
+        ;
+        iter != con.end(); 
+        returnValue+=(*iter++)
+        );
+
+    return returnValue;
+}
+
+template<class iterCon>
+auto cMeanIt(iterCon beg, iterCon end){
+    auto returnValue = *beg - *beg;
+    size_t size = 0;
+    for (
+        ;
+        beg != end;
+        size++,
+        returnValue+=(*beg++)
+        );
+
+    return static_cast<double>(returnValue) / size;
+}
+
+template<class iterCon>
+auto cMeanIt2(iterCon beg, iterCon end){
+    auto returnValue = *beg - *beg;
+    auto iter = beg;
+    size_t size = 0;
+
+    while (
+        (iter != end) && 
+        (size++ != -1) && 
+        (returnValue+=(*iter++))
+        );
+    
+    return static_cast<double>(returnValue) / size;
+}
+
+template<class Con>
+auto cMeanCon(Con& con){
+    typename Con::const_iterator iter = con.begin();
+    auto returnValue = *iter - *iter;
+    size_t size = 0;
+    for (
+        ; 
+        iter != con.end();
+        size++, 
+        returnValue+=*iter++
+        );
+    return static_cast<double>(returnValue) / size;
+}
+
+template<class Con>
+auto cMeanCon2(Con& con){
+    typename Con::const_iterator iter = con.begin();
+    auto returnValue = *iter - *iter;
+    size_t size = 0;
+
+    while (
+        (iter != con.end()) && 
+        (size++ != -1) && 
+        (returnValue+=(*iter++))
+        );
+    
+    return static_cast<double>(returnValue) / size;
+}
+
+template<class Con>
+auto cMeanCon3(Con& con){
+    return static_cast<double>(cSum2(con)) / con.size();
+}
+
+// / end template definition / //
+///////////////////////////////////
+// .---------------------------------------------. //
 
 #endif

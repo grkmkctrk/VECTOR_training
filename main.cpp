@@ -59,8 +59,6 @@ int main(){
 /*
     / EX2
 
-    / EX2
-*/
 
 #include "utilityClass.hpp"
 
@@ -82,6 +80,120 @@ int main(){
     cdisplay(dVec);
     cfillString(sVec, 10);
     cdisplay(sVec);
+
+    return 0;
+}
+
+    / EX2
+*/
+
+
+/*
+    / EX3
+
+
+
+#include "utilityClass.hpp"
+
+using namespace std;
+
+int main(){
+
+    vector<int> iVec;
+    vector<double> dVec;
+
+    Randomize();
+
+    cout << "SUM PROCESS USING ITERATOR" << endl;
+    
+    cfill(iVec, 2,  0.0,  100.0);
+    cdisplay(iVec);
+    cout << "The result of sumation of iVec : " << cSum(iVec.begin(), iVec.end()) << endl;
+    
+    cout << endl; ///
+    
+    cfill(dVec, 2,  0.0,  100.0);
+    cdisplay(dVec);
+    cout << "The result of sumation of dVec : " << cSum(dVec.begin(), dVec.end()) << endl;
+    
+    cout << endl << endl; iVec.clear(); dVec.clear();
+
+    cout << "SUM PROCESS USING CONTEINER ITSELF" << endl;
+ 
+    cfill(iVec, 2, 0.0, 100.0);
+    cdisplay(iVec);
+    cout << "The result of sumation of dVec : " << cSum2(iVec) << endl;
+ 
+    cout << endl;
+ 
+    cfill(dVec, 2,  0.0,  100.0);
+    cdisplay(dVec);
+    cout << "The result of sumation of dVec : " << cSum2(dVec) << endl;
+ 
+    return 0;
+}
+    / EX3
+*/
+
+/*
+    / EX4
+
+
+#include "utilityClass.hpp"
+
+using namespace std;
+
+int main(){
+
+    vectorInt iVec;
+    vectorDouble dVec;
+    
+    Randomize();
+
+    cfill(iVec, 2, 0.0, 100.0);
+    cdisplay(iVec);
+    
+    cfill(dVec, 2, 0.0, 100.0);
+    cdisplay(dVec);
+
+    cout << cSum2(iVec) << " " << cSum2(dVec) << endl;
+
+    // cout << "Mean of iVec is (" << cMeanIt(iVec.begin(), iVec.end()) << ")" << endl; 
+
+    // cout << "Mean of iVec is (" << cMeanIt(dVec.begin(), dVec.end()) << ")" << endl; 
+    // cout << endl << endl;
+    // cout << "Mean of iVec is (" << cMeanIt2(iVec.begin(), iVec.end()) << ")" << endl; 
+
+    // cout << "Mean of iVec is (" << cMeanIt2(dVec.begin(), dVec.end()) << ")" << endl; 
+
+    return 0;
+}
+
+    / EX4
+*/
+
+/*
+    / EX5
+
+    / EX5
+*/
+
+#include "utilityClass.hpp"
+
+using namespace std;
+
+int main(){
+
+    vectorInt iVec;
+
+    Randomize();
+
+    cfill(iVec, 3, 0.0, 100.0);
+    cdisplay(iVec);
+
+    cout << "Mean of iVec is (" << cMeanCon(iVec) << ")" << endl;
+    cout << "Mean of iVec is (" << cMeanCon2(iVec) << ")" << endl;
+    cout << "Mean of iVec is (" << cMeanCon3(iVec) << ")" << endl;
 
     return 0;
 }

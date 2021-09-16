@@ -154,6 +154,198 @@ auto cMeanCon3(Con& con){
     return static_cast<double>(cSum2(con)) / con.size();
 }
 
+template<class Con, class iter1, class iter2>
+Con cSumTwoVectorIt(iter1 beg1, iter1 end1, iter2 beg2, iter2 end2, Con& con){
+    for (; 
+        beg1 != end1 && beg2 != end2; 
+        con.push_back(*beg1++ + *beg2++)
+        );
+    return con;
+}
+
+template<class Con, class iter1, class iter2>
+Con cSumTwoVectorIt2(iter1 beg1, iter1 end1, iter2 beg2, iter2 end2, Con& con){
+    while(beg1 != end1 && beg2 != end2){
+        con.push_back(*beg1++ + *beg2++);
+    }
+
+    return con;
+}
+
+template<class iter1, class iter2, class iter3>
+auto cSumTwoVectorIt3(
+    iter1 beg1, iter1 end1, 
+    iter2 beg2, iter2 end2, 
+    iter3 beg3, iter3 end3){
+    for (; 
+        beg1 != end1 && beg2 != end2 && beg3 != end3; 
+        *beg3++ = *beg1++ + *beg2++
+        );
+
+    return beg3;
+}
+
+template<class Con, class iter1, class iter2>
+Con cMinusTwoVector(iter1 beg1, iter1 end1, iter2 beg2, iter2 end2, Con& con){
+    for (; 
+        beg1 != end1 && beg2 != end2; 
+        con.push_back(*beg1++ - *beg2++)
+        );
+    return con;
+}
+
+template<class Con, class iter1, class iter2>
+Con cProductTwoVector(iter1 beg1, iter1 end1, iter2 beg2, iter2 end2, Con& con){
+    for (; 
+        beg1 != end1 && beg2 != end2; 
+        con.push_back(*beg1++ * *beg2++)
+        );
+    return con;
+}
+
+template<class Con, class iter1, class iter2>
+Con cDivideTwoVector(iter1 beg1, iter1 end1, iter2 beg2, iter2 end2, Con& con){
+    auto dividedZero = *beg2 - *beg2;
+    
+    do{
+        if(*beg2 == dividedZero || *beg1 == dividedZero) 
+            con.push_back(dividedZero);
+        else 
+            con.push_back(static_cast<double>(*beg1) / *beg2);
+        // beg1++;beg2++; 
+    }while(beg1++ != end1 && beg2++ != end2);
+    
+    return con;
+}
+
+template<class Type1, class Type2, class Type3>
+void cMinusTwoVectorIt( Type1 beg1, Type1 end1, 
+                        Type2 beg2, Type2 end2, 
+                        Type3 beg3, Type3 end3){
+    for (; 
+        beg1 != end1 && beg2 != end2;
+        *beg3++ = *beg1++ - *beg2++
+    );
+}
+
+template<class Type1, class Type2, class Type3>
+void cProductTwoVectorIt(Type1 beg1, Type1 end1, 
+                         Type2 beg2, Type2 end2, 
+                         Type3 beg3, Type3 end3){
+    for (; 
+        beg1 != end1 && beg2 != end2;
+        *beg3++ = *beg1++ * *beg2++
+    );
+
+}
+
+template<class Type1, class Type2, class Type3>
+void cDivideTwoVectorIt(Type1 beg1, Type1 end1, 
+                        Type2 beg2, Type2 end2, 
+                        Type3 beg3, Type3 end3){
+    for (; 
+        beg1 != end1 && beg2 != end2;
+        *beg3 = !(*beg2) ? (*beg2 - *beg2) : static_cast<double>(*beg1) / *beg2,
+        beg1++, beg2++, beg3++
+    );
+
+}
+
+template<class type1, class type2>
+void cSumOneVecIt(
+    type1 beg1, type1 end1, 
+    type2 beg2, type2 end2){
+
+    for (; 
+    beg1 != end1 && beg2 != end2; 
+    *beg1++ += *beg2++
+    );
+}
+
+template<class type1, class type2>
+void cMinusOneVecIt(
+    type1 beg1, type1 end1, 
+    type2 beg2, type2 end2){
+
+    for (; 
+    beg1 != end1 && beg2 != end2; 
+    *beg1++ -= *beg2++
+    );
+}
+
+template<class type1, class type2>
+void cProductOneVecIt(
+    type1 beg1, type1 end1, 
+    type2 beg2, type2 end2){
+
+    for (; 
+    beg1 != end1 && beg2 != end2; 
+    *beg1++ *= *beg2++
+    );
+}
+
+template<class type1, class type2>
+void cDivideOneVecIt(
+    type1 beg1, type1 end1, 
+    type2 beg2, type2 end2){
+
+    for (; 
+        beg1 != end1 && beg2 != end2; 
+        *beg1 = (*beg2) ? static_cast<double>(*beg1) / *beg2 : 0 ,
+        beg1++, beg2++
+    );
+}
+
+template<class t1, class t2>
+void swapVecElementIt(t1 beg1, t1 end1, t2 beg2, t2 end2){
+    auto holder = beg1;
+    do{
+        holder = *beg1;
+        *beg1 = *beg2;
+        *beg2 = holder;
+    }while (beg1++ != end1 && beg2++ != end2);
+
+}
+
+template<class t1, class t2>
+void swapR(t1& beg1, t2& beg2){
+    auto holder = beg1;
+    beg1 = beg2;
+    beg2 = holder;
+}
+
+template<class t1, class t2>
+void swapP(t1 beg1, t2 beg2){
+    auto holder = *beg1;
+    *beg1 = *beg2;
+    *beg2 = holder;
+}
+
+template<class t1, class t2>
+void swapVectorElementsItFunc(t1 beg1, t1 end1, t2 beg2, t2 end2){
+    do{
+        // swapR(*beg1, *beg2);
+        swapP(beg1, beg2);
+    }while(beg1++ != end1 && beg2++ != end2);
+}
+
+template<class t1Con, class t2Con>
+void swapVectorElementsCon(t1Con& con1, t2Con& con2){
+
+    typename t1Con::iterator iter1 = con1.begin();
+    typename t2Con::iterator iter2 = con2.begin();
+    do{
+        // auto holder = *iter1;
+        // *iter1 = *iter2;
+        // *iter2 = holder;
+
+        // swapR(*iter1, *iter2);
+
+        swapP(iter1, iter2);
+    }while (iter1++ != con1.end() && iter2++ != con2.end());
+    
+}
+
 // / end template definition / //
 ///////////////////////////////////
 // .---------------------------------------------. //

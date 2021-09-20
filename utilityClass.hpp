@@ -346,8 +346,262 @@ void swapVectorElementsCon(t1Con& con1, t2Con& con2){
     
 }
 
+
+template<class t1It, class t2It>
+void reverseSwapVectorsElemenstIt(t1It beg1, t1It end1, t2It beg2, t2It end2){
+    
+    // do{
+    //     end1--;
+    //     auto holder = *end1;
+    //     *end1 = *beg2;
+    //     *beg2 = holder;
+    // }while (end1 != beg1 && beg2++ != end2);
+
+    for (
+        auto holder = *end1; 
+        end1 != beg1 && beg2 != end2; 
+        end1--,
+        holder = *end1,
+        *end1 = *beg2,
+        *beg2 = holder,
+        beg2++
+        );
+    
+
+}
 // / end template definition / //
 ///////////////////////////////////
 // .---------------------------------------------. //
+
+template<class Con1, class Con2>\
+void reverseSwapVectorsElementsCon(Con1& con1, Con2& con2){
+    
+    // auto end1 = con1.end();
+    // auto beg2 = con2.begin();
+    // do{
+    //     end1--;
+    //     auto holder = *end1;
+    //     *end1 = *beg2;
+    //     *beg2 = holder;
+    // }while(end1 != con1.begin() && beg2++ != con2.end());
+
+    // auto end1 = con1.end();
+    // auto beg2 = con2.begin();
+    // for(
+    //     auto holder = *end1;
+    //     end1 != con1.begin() && beg2 != con2.end();
+    //     end1--,
+    //     holder = *end1,
+    //     *end1 = *beg2,
+    //     *beg2 = holder,
+    //     beg2++
+    //     );
+
+    typename Con1::reverse_iterator iter1 = con1.rbegin();
+    typename Con2::iterator  iter2 = con2.begin();
+    auto holder = *iter1 = *iter1;
+
+    for (
+        ; 
+        iter1 != con1.rend() && iter2 != con2.end(); 
+        holder = *iter1,
+        *iter1 = *iter2,
+        *iter2 = holder,
+        iter1++, iter2++
+        );
+}
+
+template<class T>
+auto findMaxValueIt(T beg, T end){
+    auto result = *beg - *beg;
+
+    // while (
+    //     end-- != beg && 
+    //     (result = (*end > result) ? *end : result)
+    //     );
+
+    for(
+        ; 
+        end-- != beg; 
+        result = (*end > result) ? *end : result
+    );
+
+    return result;
+}
+
+template<class Con>
+auto findMaxValueCon(Con& con){
+    auto beg = con.begin();
+    auto end = con.end();
+    auto result = *beg - *beg;
+    for(
+        ; 
+        end-- != beg;
+        result = (*end > result) ? *end : result
+    );
+    return result;
+}
+
+template<class T>
+auto findMinValueIt(T beg, T end){
+    auto result = *beg;
+
+    // while (
+    //     end-- != beg && 
+    //     (result = (*end < result) ? *end : result)
+    //     );
+
+    for(
+        ; 
+        end-- != beg; 
+        result = (*end < result) ? *end : result
+    );
+
+    return result;
+}
+
+template<class Con>
+auto findMinValueCon(Con& con){
+    auto beg = con.begin();
+    auto end = con.end();
+    auto result = *beg;
+    for(
+        ; 
+        end-- != beg;
+        result = (*end < result) ? *end : result
+    );
+    return result;
+}
+
+template<typename T>
+void sortVectorIt(T beg, T end){
+    size_t size = 0;
+
+    auto sortBeg = beg;
+    auto sortEnd = end;
+
+    while(beg != end){
+        size++;
+        beg++;
+    }
+
+    for (size_t i = 0; i < size - 1; i++){
+        auto sortBegNext = sortBeg;
+        for (size_t k = 0; k < size - i - 1; k++){
+            if(*sortBeg > *++sortBegNext)
+                swapR(*sortBeg, *sortBegNext);
+        }
+        sortBeg++;
+    }
+
+}
+
+template<class T>
+void sortVectorCon(T& con){
+
+    size_t size = con.size();
+
+    for (size_t i = 0; i < size - 1; i++){
+        for (size_t k = 0; k < size - i; k++){
+            if(con[i] > con[i+k])
+                swapR(con[i], con[i+k]);
+        }
+    }
+
+}
+
+template<typename T>
+void reverseSortVectorIt(T beg, T end){
+    size_t size = 0;
+
+    auto sortBeg = beg;
+    auto sortEnd = end;
+
+    while(beg != end){
+        size++;
+        beg++;
+    }
+
+    for (size_t i = 0; i < size - 1; i++){
+        auto sortBegNext = sortBeg;
+        for (size_t k = 0; k < size - i - 1; k++){
+            if(*sortBeg < *++sortBegNext)
+                swapR(*sortBeg, *sortBegNext);
+        }
+        sortBeg++;
+    }
+
+}
+
+template<class T>
+void reverseSortVectorCon(T& con){
+
+    size_t size = con.size();
+
+    for (size_t i = 0; i < size - 1; i++){
+        for (size_t k = 0; k < size - i; k++){
+            if(con[i] < con[i+k])
+                swapR(con[i], con[i+k]);
+        }
+    }
+
+}
+
+
+template<class T1, class T2>
+void myCopyIt(T1 beg1, T1 end1, T2 beg2, T2 end2){
+    
+    for (
+        ; 
+        beg1 != end1; 
+        *beg2 = *beg1,
+        beg1++, beg2++
+        );
+}
+
+template<class Con>
+void myCopyCon(Con& con1, Con& con2){
+
+    typename Con::iterator iter = con1.begin();
+
+    for (
+        ; iter != con1.end(); 
+        con2.push_back(*iter), 
+        iter++
+        );
+}
+
+template<class T1, class T2>
+void myCopyDiff(T1 beg1, T1 end1, T2 beg2 , T2 end2){
+    for (
+        ; 
+        beg1 != end1; 
+        *beg2 = *beg1,
+        beg1++, beg2++
+        );
+}
+
+template<class t1, class t2>
+void myCopyDiffReverse(t1 beg1, t1 end1, t2 beg2, t2 end2){
+
+    for (
+        end1--; 
+        end1 != beg1-1; 
+        *beg2 = *end1,
+        end1--,
+        beg2++
+        );
+}
+
+template<class Con1, class Con2>
+void myCopyReverse(Con1& con1, Con2& con2){
+    
+
+    for (
+        typename Con1::iterator iter = con1.end();
+        iter != con1.begin(); 
+        con2.push_back(*--iter)
+        );
+}
 
 #endif

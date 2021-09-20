@@ -495,11 +495,10 @@ int main(){
     / EX11
 */
 
+
 /*
     / EX12
 
-    / EX12
-*/
 
 #include "utilityClass.hpp"
 
@@ -524,4 +523,260 @@ int main(){
     cout << "iVec2 = "; cdisplay(iVec2);
 
     return 0; 
+}
+    / EX12
+*/
+
+/*
+    / EX13
+
+
+#include "utilityClass.hpp"
+
+using namespace std;
+
+int main(){
+
+    Randomize();
+
+    vectorInt iVec1, iVec2;
+
+    cfill(iVec1, 10, 0.0, 100.0);
+    cfill(iVec2, 10, 0.0, 100.0);
+
+    cout << "iVec1 : "; cdisplay(iVec1);
+    cout << "iVec2 : "; cdisplay(iVec2);
+
+    // reverseSwapVectorsElemenstIt(
+    //     iVec1.begin(), iVec1.end(),
+    //     iVec2.begin(), iVec2.end()
+    //     );
+
+    reverseSwapVectorsElementsCon(iVec1, iVec2);
+
+    cout << "iVec1 : "; cdisplay(iVec1);
+    cout << "iVec2 : "; cdisplay(iVec2);
+
+    return 0;
+}
+    / EX13
+*/
+
+/*
+    / EX14
+    
+
+#include "utilityClass.hpp"
+
+using namespace std;
+
+int main(){
+
+    Randomize();
+
+    vectorInt iVec1, iVec2;
+
+    cfill(iVec1, 10, 0.0, 100.0);
+    cfill(iVec2, 10, 0.0, 100.0);
+
+    cout << "iVec1 : "; cdisplay(iVec1);
+    cout << "iVec2 : "; cdisplay(iVec2);    
+
+    // cout << "Max value of iVec1 is " << findMaxValueIt(iVec1.begin(), iVec1.end()) << endl;
+    // cout << "Max value of iVec2 is " << findMaxValueIt(iVec2.begin(), iVec2.end()) << endl;
+    // cout << "Max value of iVec1 is " << findMaxValueCon(iVec1) << endl;
+    // cout << "Max value of iVec2 is " << findMaxValueCon(iVec2) << endl;
+
+    // cout << "Max value of iVec1 is " << findMinValueIt(iVec1.begin(), iVec1.end()) << endl;
+    // cout << "Max value of iVec2 is " << findMinValueIt(iVec2.begin(), iVec2.end()) << endl;
+    cout << "Max value of iVec1 is " << findMinValueCon(iVec1) << endl;
+    cout << "Max value of iVec2 is " << findMinValueCon(iVec2) << endl;
+
+    return 0;
+}
+
+    / EX14
+*/
+
+
+/*
+    / EX15
+    
+
+#include "utilityClass.hpp"
+
+using namespace std;
+
+
+int main(){
+
+    Randomize();
+
+    vectorInt iVec1, iVec2;
+
+    cfill(iVec1, 10, 0.0, 100.0);
+    cfill(iVec2, 10, 0.0, 100.0);
+
+    cout << "iVec1 : "; cdisplay(iVec1);
+    cout << "iVec2 : "; cdisplay(iVec2);     
+
+    sortVectorIt(iVec1.begin(), iVec1.end());
+    sortVectorIt(iVec2.begin(), iVec2.end());
+
+    cout << "iVec1 : "; cdisplay(iVec1);
+    cout << "iVec2 : "; cdisplay(iVec2);
+
+    return 0;
+}
+    / EX15
+*/
+
+/*
+    / EX16
+    
+#include "utilityClass.hpp"
+
+using namespace std;
+
+
+int main(){
+
+  Randomize();
+
+    vectorInt iVec1, iVec2;
+
+    cfill(iVec1, 10, 0.0, 100.0);
+    cfill(iVec2, 10, 0.0, 100.0);
+
+    cout << "iVec1 : "; cdisplay(iVec1);
+    cout << "iVec2 : "; cdisplay(iVec2);     
+
+    sortVectorCon(iVec1);
+    sortVectorCon(iVec2);
+
+    cout << "iVec1 : "; cdisplay(iVec1);
+    cout << "iVec2 : "; cdisplay(iVec2);     
+
+    return 0;
+}
+
+    / EX16
+*/
+
+/*
+    / EX17
+    
+
+#include "utilityClass.hpp"
+
+using namespace std;
+
+
+int main(){
+
+    Randomize();
+
+    vectorInt iVec1, iVec2;
+
+    cfill(iVec1, 10, 0.0, 100.0);
+    cfill(iVec2, 10, 0.0, 100.0);
+
+    cout << "iVec1 : "; cdisplay(iVec1);
+    cout << "iVec2 : "; cdisplay(iVec2);     
+
+    reverseSortVectorCon(iVec1);
+    reverseSortVectorCon(iVec2);
+    // reverseSortVectorIt(iVec1.begin(), iVec1.end());
+    // reverseSortVectorIt(iVec2.begin(), iVec2.end());
+
+    cout << "iVec1 : "; cdisplay(iVec1);
+    cout << "iVec2 : "; cdisplay(iVec2);     
+
+    return 0;
+}
+
+    / EX17
+*/
+
+/*
+    / EX18
+    
+
+#include "utilityClass.hpp"
+
+using namespace std;
+
+int main(){
+
+    Randomize();
+
+    vectorInt iVec1;
+
+    cfill(iVec1, 10, 0.0, 100.0);
+
+    cout << "iVec1 : "; cdisplay(iVec1);
+
+    // vectorInt iVec2(10);
+    vectorInt iVec2;
+    // one to two
+    // myCopyIt(
+    //     iVec1.begin(), iVec1.end(), 
+    //     iVec2.begin(), iVec2.end()
+    //     );
+    myCopyCon(iVec1, iVec2);
+
+    cout << "After copying" << "\n";
+    cout << "iVec1 : "; cdisplay(iVec1);
+    cout << "iVec2 : "; cdisplay(iVec2);
+
+    sortVectorCon(iVec1);
+    sortVectorCon(iVec2);
+
+    cout << "After sorting" << "\n";
+    cout << "iVec1 : "; cdisplay(iVec1);
+    cout << "iVec2 : "; cdisplay(iVec2);
+    
+    return 0;
+}
+    / EX18
+*/
+
+/*
+    / EX19
+    
+    / EX19
+*/
+
+#include "utilityClass.hpp"
+
+using namespace std;
+
+int main(){
+
+    Randomize();
+
+    vectorInt iVec1;
+
+    cfill(iVec1, 10, 0.0, 100.0);
+
+    cout << "iVec1 : "; cdisplay(iVec1);
+
+    // list<int> iList1(10);
+    // myCopyDiff(
+    //     iVec1.begin(), iVec1.end(),
+    //     iList1.begin(), iList1.end()
+    //     );
+
+    // myCopyDiffReverse(
+    //     iVec1.begin(), iVec1.end(),
+    //     iList1.begin(), iList1.end()
+    //     );
+
+    list<int> iList1;
+    myCopyReverse(iVec1, iList1);
+
+    cout << "iVec1 : "; cdisplay(iVec1);
+    cout << "iList1 : "; cdisplay(iList1);
+
+    return 0;
 }
